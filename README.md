@@ -31,5 +31,23 @@
 
 ​	纯coding练习，没技巧
 
+### 344题 反转字符串
+
+​	没难度，浪费时间
+
+### 136题🌟 只出现一次的数字
+
+​	惊了！位运算也太骚了[看官方解答](https://leetcode-cn.com/problems/single-number/solution/zhi-chu-xian-yi-ci-de-shu-zi-by-leetcode-solution/)
+
+### 169题🌟 多数元素
+
+​	两分钟AC但是性能不好，[解答中的分治算法可以看看](https://leetcode-cn.com/problems/majority-element/solution/duo-shu-yuan-su-by-leetcode-solution/)
+
+### 160题🌟 相交链表
+
+​	双指针太浪漫了，[思路值得学习](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
+
+
+
 
 
