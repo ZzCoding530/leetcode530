@@ -33,9 +33,12 @@
 | **92**反转链表                          | 双指针 递归也行  | 🌟🌟🌟      |
 | **654**创造最大二叉树                   |       递归       | 🌟🌟🌟      |
 | **652**二叉树重复子树                   |   二叉树 递归    | 🌟🌟🌟      |
+| **230**寻找第k小的元素                  |   二叉树 递归    | 🌟🌟🌟      |
+| **538**BST转累加树                      |     BST 递归     | 🌟🌟🌟      |
 |                                         |                  |          |
-
-
+|                                         |                  |          |
+|                                         |                  |          |
+|                                         |                  |          |
 
 ## 😁模板速记
 
@@ -76,7 +79,46 @@ ListNode kReverse(ListNode a, ListNode b) {
 
 **其实第一个反转全部链表相当于，从反转头指针到null之间的链表，这样第二种就很好理解**
 
+### 二叉树遍历模板
 
+```java
+/* 二叉树遍历框架 */
+void traverse(TreeNode root) {
+    // 前序遍历
+    traverse(root.left)
+    // 中序遍历
+    traverse(root.right)
+    // 后序遍历
+}
+```
+
+二叉树的所有题，都离不开这个递归模板，只是具体操作放在哪的问题，在前序还是中序还是后序
+
+### BST中序遍历就是升序打印
+
+```java
+void traverse(TreeNode root) {
+    if (root == null) return;
+    traverse(root.left);
+    // 中序遍历代码位置
+    print(root.val);
+    traverse(root.right);
+}
+```
+
+**如果想降序**
+
+```java
+void traverse(TreeNode root) {
+    if (root == null) return;
+    // 先递归遍历右子树
+    traverse(root.right);
+    // 中序遍历代码位置
+    print(root.val);
+    // 后递归遍历左子树
+    traverse(root.left);
+}
+```
 
 
 
