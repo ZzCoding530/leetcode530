@@ -35,10 +35,10 @@
 | **652**二叉树重复子树                   |   二叉树 递归    | 🌟🌟🌟      |
 | **230**寻找第k小的元素                  |   二叉树 递归    | 🌟🌟🌟      |
 | **538**BST转累加树                      |     BST 递归     | 🌟🌟🌟      |
-|                                         |                  |          |
-|                                         |                  |          |
-|                                         |                  |          |
-|                                         |                  |          |
+| **98**验证二叉搜索树                    |     BST递归      | 🌟🌟🌟      |
+| **700**搜索二叉树中的搜索               |     BST递归      | 🌟🌟🌟      |
+| **701**搜索二叉树插入                   |     BST递归      | 🌟🌟🌟      |
+| **450**删除搜索二叉树某个元素           |     BST递归      | 🌟🌟🌟🌟     |
 
 ## 😁模板速记
 
@@ -120,6 +120,64 @@ void traverse(TreeNode root) {
 }
 ```
 
+### 在二叉树中搜索一个元素
+
+```java
+boolean isInBST(TreeNode root, int target) {
+    if (root == null) return false;
+    if (root.val == target) return true;
+    // 当前节点没找到就递归地去左右子树寻找
+    return isInBST(root.left, target)
+        || isInBST(root.right, target);
+}
+```
+
+### BST中搜索一个元素
+
+```java
+boolean isInBST(TreeNode root, int target) {
+    if (root == null) return false;
+    if (root.val == target)
+        return true;
+    if (root.val < target) 
+        return isInBST(root.right, target);
+    if (root.val > target)
+        return isInBST(root.left, target);
+    // root 该做的事做完了，顺带把框架也完成了，妙
+}
+```
+
+**搜索就是找到这个数，找到了就可以对这个数进行操作，类似更改，删除，添加。**
+
+### BST遍历模板
+
+```java
+void BST(TreeNode root, int target) {
+    if (root.val == target)
+        // 找到目标，做点什么
+    if (root.val < target) 
+        BST(root.right, target);
+    if (root.val > target)
+        BST(root.left, target);
+}
+```
+
+**如果涉及插入，需要有返回值，模板如下**
+
+```java
+TreeNode insertIntoBST(TreeNode root, int val) {
+    // 找到空位置插入新节点
+    if (root == null) return new TreeNode(val);
+    // if (root.val == val)
+    //     BST 中一般不会插入已存在元素
+    if (root.val < val) 
+        root.right = insertIntoBST(root.right, val);
+    if (root.val > val) 
+        root.left = insertIntoBST(root.left, val);
+    return root;
+}
+```
+
 
 
 ## 🤪LeetCode题目点评
@@ -178,3 +236,6 @@ void traverse(TreeNode root) {
 
 需要截取数组时候不一定非要真的截取出来，可以传index，按照首尾index来取。这样不用额外的空间。
 
+### 450删除BST某个元素
+
+这道题很典型体现递归在二叉树中的应用，并且很练coding，建议多做几遍。
