@@ -48,7 +48,7 @@
 | **503**环形数组中下一个更大元素         |             单调栈              | 🌟🌟🌟      |
 | **239**滑动窗口最大值                   |         单调栈 双端队列         | 🌟🌟🌟🌟     |
 | **232**用栈实现队列                     |               栈                | 🌟        |
-|                                         |                                 |          |
+| **875**猪b吃香蕉                        |             二分法              | 🌟🌟🌟      |
 
 ## 😁模板速记
 
@@ -217,7 +217,70 @@ public int[] nextGreaterElement(int[] nums) {
     }
 ```
 
+### 二分法查找的几个模板
 
+```java
+int binarySearch(int[] nums, int target) {
+    int left = 0; 
+    int right = nums.length - 1; // 注意
+
+    while(left <= right) { // 注意
+        int mid = (right + left) / 2;
+        if(nums[mid] == target)
+            return mid; 
+        else if (nums[mid] < target)
+            left = mid + 1; // 注意
+        else if (nums[mid] > target)
+            right = mid - 1; // 注意
+        }
+    return -1;
+}
+```
+
+上面是第一种：找到了就返回，正中间那个数
+
+```java
+int left_bound(int[] nums, int target) {
+    if (nums.length == 0) return -1;
+    int left = 0;
+    int right = nums.length; // 注意
+
+    while (left < right) { // 注意
+        int mid = (left + right) / 2;
+        if (nums[mid] == target) {
+            right = mid;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid; // 注意
+        }
+    }
+    return left;
+}
+```
+
+上面是第二种，有重复值的中间值，找左侧边界，比如【1，2，3，3，3，3，4】
+
+```java
+int right_bound(int[] nums, int target) {
+    if (nums.length == 0) return -1;
+    int left = 0, right = nums.length;
+
+    while (left < right) {
+        int mid = (left + right) / 2;
+        if (nums[mid] == target) {
+            left = mid + 1; // 注意
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid;
+        }
+    }
+    return left - 1; // 注意
+}
+```
+
+上面是有重复值时候找右侧边界。
 
 ---
 
@@ -306,6 +369,10 @@ public int[] nextGreaterElement(int[] nums) {
 当需要循环数组的时候，我们的思想应该是 **将数组长度变为二倍，再复制一个完整的接到末尾**
 
 但实际操作不需要复制数组，**只需要将 for循环的 index *2 就行**
+
+### 875二分法的几个模板都要记牢
+
+
 
 
 
