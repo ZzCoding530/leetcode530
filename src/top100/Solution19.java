@@ -9,7 +9,7 @@ package top100;
 
 public class Solution19 {
 
-    public static Solution19 instance;
+    public volatile static Solution19 instance;
 
     public Solution19() {
         System.out.println("对象被创建啦！");
