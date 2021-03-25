@@ -16,7 +16,7 @@ public class MergeSort implements SortIml {
     }
 
     private void mergeSort(int[] arr, int low, int high) {
-        if (high - low >= 1) {
+        if (high - low <= 1) {
             return;
         }
 
