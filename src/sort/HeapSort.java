@@ -39,10 +39,7 @@ public class HeapSort implements SortIml {
      */
     private void sink(int[] nums, int curr, int end) {
         while (2 * curr + 1 <= end) {
-//            int j = 2 * curr + 1;
-//            if (j + 1 <= end && nums[j + 1] > nums[j]) {
-//                j++;
-//            }
+
             int j = 2 * curr + 1;
             if (2 * curr + 2 <= end) {
                 j = nums[j] > nums[j + 1] ? j : j + 1;
