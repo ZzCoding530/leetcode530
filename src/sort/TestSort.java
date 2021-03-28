@@ -21,8 +21,9 @@ public class TestSort {
 //        quickSort.sort(testArr);
 //        quickSort.showResult(testArr);
 
-        HeapSort heapSort = new HeapSort();
-        heapSort.sort(testArr);
-        heapSort.showResult(testArr);
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(testArr);
+        quickSort.showResult(testArr);
+
     }
 }
