@@ -8,7 +8,7 @@ import java.util.HashMap;
  * @description: 无重复的最长子串
  */
 
-public class Solution03 {
+public class Solution3 {
     public int lengthOfLongestSubstring(String s) {
         //特殊情况
         if (s.length() == 0) {
