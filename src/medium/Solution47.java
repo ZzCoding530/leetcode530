@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public class Solution47 {
-    public List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permuteUnique(int[] nums) {
         int len = nums.length;
 
         List<List<Integer>> resList = new LinkedList<>();
