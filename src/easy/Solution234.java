@@ -4,7 +4,7 @@ package easy;
 /**
  * @author: zhangchen
  * @date: 2021/1/12
- * @description:
+ * @description: 判断回文链表
  */
 
 public class Solution234 {
