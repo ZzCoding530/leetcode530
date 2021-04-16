@@ -15,16 +15,22 @@ public class Solution101 {
         return dfs(root.left, root.right);
     }
 
+
     boolean dfs(TreeNode left, TreeNode right) {
-        //递归的终止条件是两个节点都为空
-        //或者两个节点中有一个为空
-        //或者两个节点的值不相等
+
+        //如果左右节点都为空，那结构上就是对称的
         if (left == null && right == null) {
             return true;
         }
+
+        //如果上面条件不满足，就说明不是左右都空
+        //继续判断 是否左右之间只有一个为空
+        //这样从结构上就不对称的 false
         if (left == null || right == null) {
             return false;
         }
+
+        //两个都不是空的话，结构上没问题，数值上如果不想等，就也是false
         if (left.val != right.val) {
             return false;
         }
